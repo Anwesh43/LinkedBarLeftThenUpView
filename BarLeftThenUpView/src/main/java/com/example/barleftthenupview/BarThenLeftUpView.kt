@@ -9,7 +9,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.RectF
 
-val parts : Int = 4
+val parts : Int = 2
 val scGap : Float = 0.02f / parts
 val barWFactor : Float = 9.8f
 val barHFactor : Float = 11.2f
@@ -34,10 +34,8 @@ fun Canvas.drawBarThenLeftUp(scale : Float, w : Float, h : Float, paint : Paint)
     val w : Float = width.toFloat()
     val h : Float = height.toFloat()
     val sf : Float = scale.sinify()
-    val sf1 : Float = sf.divideScale(0, parts)
-    val sf2 : Float = sf.divideScale(1, parts)
-    val sf3 : Float = sf.divideScale(2, parts)
-    val sf4 : Float = sf.divideScale(3, parts)
+    val sf2 : Float = sf.divideScale(0, parts)
+    val sf4 : Float = sf.divideScale(1, parts)
     val barH : Float = Math.min(w, h) / barHFactor
     val barW : Float = Math.min(w, h) / barWFactor
     save()
@@ -49,7 +47,7 @@ fun Canvas.drawBarThenLeftUp(scale : Float, w : Float, h : Float, paint : Paint)
             RectF(
                 0f,
                 -(barH) - (h - barH) * sf4,
-                barW * sf.divideScale(j * 2, parts),
+                barW * sf2.divideScale(j * 2, 3),
                 0f
             ),
             paint
@@ -60,7 +58,7 @@ fun Canvas.drawBarThenLeftUp(scale : Float, w : Float, h : Float, paint : Paint)
         RectF(
             barW,
             -barH,
-            barW + (w - 2 * barW) * sf3,
+            barW + (w - 2 * barW) * sf2.divideScale(1, 3),
             0f
         ),
         paint
