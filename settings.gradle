@@ -1,0 +1,3 @@
+include ':BarLeftThenUpView'
+include ':app'
+rootProject.name = "LinkedBarLeftThenUpView"
