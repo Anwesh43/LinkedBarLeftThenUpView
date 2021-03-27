@@ -74,3 +74,19 @@ fun Canvas.drawBTLUNode(i : Int, scale : Float, paint : Paint) {
     paint.color = colors[i]
     drawBarThenLeftUp(scale, w, h, paint)
 }
+
+class BarThenLeftUpView(ctx : Context) : View(ctx) {
+
+    override fun onDraw(canvas : Canvas) {
+
+    }
+
+    override fun onTouchEvent(event : MotionEvent) : Boolean {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+
+            }
+        }
+        return true
+    }
+}
